@@ -1,24 +1,60 @@
 [
-    {
-      "id": 1,
-      "title": "Project One",
-      "description": "A brief description of Project One.",
-      "image": "/images/project1.png",
-      "keywords": ["React", "Tailwind", "Node.js"]
-    },
-    {
-      "id": 2,
-      "title": "Project Two",
-      "description": "A brief description of Project Two.",
-      "image": "/images/project2.png",
-      "keywords": ["Next.js", "Express", "MongoDB"]
-    },
-    {
-      "id": 3,
-      "title": "Project Three",
-      "description": "A brief description of Project Three.",
-      "image": "/images/project3.png",
-      "keywords": ["JavaScript", "CSS", "HTML"]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "AlienInUSA",
+    "description": [
+      "Developed a cross-platform mobile application using Flutter and Firebase, catering to the needs of immigrants in the USA.",
+      "Implemented features like real-time visa status tracking and secure document storage with AES-256 encryption.",
+      "Integrated housing support and seamless payment processing using Stripe.",
+      "Applied modular architecture and atomic development principles to ensure scalability and maintainability.",
+      "Utilized Firebase Firestore for real-time data synchronization across devices, enhancing user experience."
+    ],
+    "images": [
+      { "src": "alien1.png", "orientation": "portrait" },
+      { "src": "alien2.png", "orientation": "portrait" },
+      { "src": "alien3.png", "orientation": "portrait" },
+      { "src": "alien4.png", "orientation": "portrait" },
+      { "src": "alien5.png", "orientation": "portrait" }
+    ],
+    "keywords": ["Flutter", "Firebase", "Stripe", "GCP"]
+  },
+  {
+    "id": 2,
+    "title": "Recipeee",
+    "description": [
+      "Developed a web-based platform that generates recipe suggestions based on user-provided ingredients.",
+      "Designed the frontend using Flutter and implemented the backend with Node.js and Express.js.",
+      "Integrated Tesseract OCR for real-time ingredient recognition.",
+      "Implemented dynamic content rendering with WebSockets, ensuring low-latency server communication.",
+      "Created asynchronous workflows with Futures and Streams to provide localized suggestions and dietary customization."
+    ],
+    "images": [
+      { "src": "recipe1.png", "orientation": "landscape" },
+      { "src": "recipe2.png", "orientation": "landscape" },
+      { "src": "recipe3.png", "orientation": "landscape" },
+      { "src": "recipe4.png", "orientation": "landscape" },
+      { "src": "recipe5.png", "orientation": "landscape" },
+      { "src": "recipe6.png", "orientation": "landscape" }
+    ],
+    "keywords": ["Flutter", "Node.js", "Express.js", "Gemini", "Netlify", "Heroku", "Cloudinary"]
+  },
+  {
+    "id": 3,
+    "title": "Fluento",
+    "description": [
+      "Developed a gamified language learning application using Flutter and Firebase.",
+      "Implemented real-time communication and personalized challenges using WebSockets to make learning interactive.",
+      "Designed a robust progress-tracking system with asynchronous workflows using Futures and Streams.",
+      "Applied modular design principles to ensure scalability and implemented performance optimization techniques, reducing response times by 20%."
+    ],
+    "images": [
+      { "src": "fluento1.png", "orientation": "portrait" },
+      { "src": "fluento2.png", "orientation": "portrait" },
+      { "src": "fluento3.png", "orientation": "portrait" },
+      { "src": "fluento4.png", "orientation": "portrait" },
+      { "src": "fluento5.png", "orientation": "portrait" },
+      { "src": "fluento6.png", "orientation": "portrait" }
+    ],
+    "keywords": ["Flutter", "Firebase", "FlutterFlow"]
+  }
+]
