@@ -1,87 +1,196 @@
-"use client";
-
 import React, { useState, useEffect } from "react";
 
-export default function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
+const ProjectCard = ({ project }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    fetch("/projects.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProjects(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching project data:", error);
-        setLoading(false);
-      });
-  }, []);
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project.images.length);
+  };
 
-  if (loading) {
-    return <div className="text-center text-gray-300">Loading...</div>;
-  }
+  const handlePrev = () => {
+    setCurrentImageIndex((prevIndex) =>
+      (prevIndex - 1 + project.images.length) % project.images.length
+    );
+  };
 
   return (
-    <section id="projects" className="py-16 bg-gradient-to-b from-gray-900 via-black to-gray-800 text-gray-100 relative">
-  {/* Transition from About */}
-  <div className="wave-divider"></div>
-
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-10 text-center text-yellow-500">
-      My Projects
-    </h2>
-    <p className="text-center text-gray-400 mb-12 max-w-3xl mx-auto">
-      Explore some of my featured projects where I’ve applied modern technologies to solve complex problems.
-    </p>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {projects.map((project) => (
+    <div
+      className="
+        relative 
+        bg-gray-800/50 
+        backdrop-blur-sm 
+        rounded-xl 
+        overflow-hidden 
+        group
+        border 
+        border-gray-700 
+        hover:border-yellow-500 
+        transition 
+        duration-300
+        hover:-translate-y-1 
+        hover:shadow-lg 
+        hover:shadow-yellow-500/20
+      "
+    >
+      {/* Image Carousel */}
+      <div className="relative w-full overflow-hidden">
         <div
-          key={project.id}
-          className="relative bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          className="flex transition-transform duration-500"
+          style={{
+            transform: `translateX(-${currentImageIndex * 100}%)`,
+          }}
         >
-          <div className="relative group">
-            <img
-              src={project.images[0]?.src}
-              alt={project.title}
-              className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900 opacity-0 group-hover:opacity-50 transition duration-300"></div>
-          </div>
-          <div className="p-6">
-            <h3 className="text-xl font-bold mb-2 text-gray-100">{project.title}</h3>
-            <p className="text-sm text-gray-400 mb-4">{project.description[0]}</p>
-            <div>
-              <h4 className="text-sm font-semibold text-gray-400 mb-2">
-                Technologies Used:
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {project.keywords.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 bg-gray-700 text-yellow-500 text-xs rounded-lg shadow"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+          {project.images.map((image, idx) => (
+            <div
+              key={idx}
+              className="flex-shrink-0 w-full h-[400px] flex justify-center items-center bg-black"
+            >
+              <img
+                src={image.src}
+                alt={`${project.title} Screenshot ${idx + 1}`}
+                className={`
+                  ${
+                    image.orientation === "portrait"
+                      ? "max-h-full w-auto object-contain"
+                      : "h-auto max-w-full object-contain"
+                  }
+                  transition-transform 
+                  duration-500 
+                `}
+              />
             </div>
-          </div>
+          ))}
         </div>
-      ))}
+
+        {/* Carousel Controls */}
+        {project.images.length > 1 && (
+          <>
+            <button
+              onClick={handlePrev}
+              className="
+                absolute 
+                top-1/2 
+                left-4 
+                -translate-y-1/2 
+                bg-gray-700 
+                text-white 
+                p-2 
+                rounded-full 
+                hover:bg-gray-600 
+                transition 
+                duration-300
+              "
+            >
+              ❮
+            </button>
+            <button
+              onClick={handleNext}
+              className="
+                absolute 
+                top-1/2 
+                right-4 
+                -translate-y-1/2 
+                bg-gray-700 
+                text-white 
+                p-2 
+                rounded-full 
+                hover:bg-gray-600 
+                transition 
+                duration-300
+              "
+            >
+              ❯
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* Card Content */}
+      <div className="p-6 space-y-4">
+        <h3
+          className="
+            text-xl 
+            font-bold 
+            text-gray-100 
+            group-hover:text-yellow-500 
+            transition-colors
+            duration-300
+          "
+        >
+          {project.title}
+        </h3>
+        <ul className="list-disc list-inside text-gray-400 space-y-2">
+          {project.description.map((point, idx) => (
+            <li key={idx}>{point}</li>
+          ))}
+        </ul>
+
+        {/* Tech Keywords */}
+        <div className="flex flex-wrap gap-2 mt-4">
+          {project.keywords.map((tech, idx) => (
+            <span
+              key={idx}
+              className="
+                px-3 
+                py-1 
+                bg-gray-700/50 
+                text-yellow-500 
+                text-xs 
+                rounded-lg 
+                hover:bg-gray-700 
+                transition-colors 
+                duration-300
+              "
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
-
-  {/* Transition to Experience */}
-  <div className="transition-bottom"></div>
-</section>
-
   );
-}
+};
+
+const ProjectsSection = () => {
+  const [projectsData, setProjectsData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/projects.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects data");
+        }
+        const data = await response.json();
+        setProjectsData(data);
+      } catch (error) {
+        console.error("Error fetching projects data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <section id="projects" className="py-24 relative z-10 text-gray-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold">
+            My <span className="text-yellow-500">Projects</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Explore my latest projects where I've applied modern technologies to solve real-world problems.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectsData.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProjectsSection;

@@ -1,18 +1,39 @@
+/* 1. Google Fonts (Poppins) + Slick Carousel */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-
+/* 2. Tailwind Base, Components, Utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
+/* 
+  --------------------------------------------------
+  :root Variables for Light and Dark Mode
+  --------------------------------------------------
+  You can continue to manage high-level color tokens
+  via CSS variables, while also leveraging 
+  Tailwind classes as needed.
+*/
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --transition-speed: 0.4s;
+  --gold: #FFD700;
+  --goldHover: #E6C200;
+  --accentBlue: #4FD1C5;
+
+  /* Feel free to add more brand variables 
+     if you want them globally accessible */
+  --text-secondary: #A0AEC0;
+  --border-gray: #2D3748;
 }
 
+/* 
+  Media query for system-level dark mode preferences.
+  Overwrites the default CSS variables with your dark colors.
+*/
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -20,13 +41,50 @@
   }
 }
 
-body {
+/* 
+  --------------------------------------------------
+  Base HTML & Body
+  --------------------------------------------------
+*/
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Optional: smoother transitions when switching themes */
+  transition: background-color var(--transition-speed) ease, 
+              color var(--transition-speed) ease;
 }
 
-/* Add this to global styles or Tailwind config */
+/* 
+  --------------------------------------------------
+  Custom Scrollbar (optional, techy feel)
+  --------------------------------------------------
+  Works primarily in Chrome, Edge, Safari
+*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1A202C; /* or var(--border-gray); */
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 8px;
+  border: 1px solid #1A202C;
+  /* Subtle glow on hover */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4FD1C5; /* accentBlue glow, for instance */
+}
+
+/* 
+  --------------------------------------------------
+  Existing Gradient Classes
+  --------------------------------------------------
+  You can keep or rename these classes as needed.
+*/
 .transition-bottom {
   background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 1));
 }
@@ -39,3 +97,53 @@ body {
   height: 100px;
 }
 
+/* 
+  --------------------------------------------------
+  Subtle Glow & Hover Effects
+  --------------------------------------------------
+  Utility classes you can apply to buttons, images, 
+  card components, etc., to achieve a futuristic vibe.
+*/
+
+/* Generic glow on hover */
+.hover-glow:hover {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+/* Gold Glow (useful for key CTA buttons or icons) */
+.hover-gold:hover {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+/* Accent Blue Glow */
+.hover-accent-blue:hover {
+  box-shadow: 0 0 10px rgba(79, 209, 197, 0.5);
+  transition: box-shadow var(--transition-speed) ease;
+}
+
+/* 
+  --------------------------------------------------
+  Additional Helpers
+  --------------------------------------------------
+  - Fade in elements, transitions for scale on hover, etc.
+*/
+/* Fade-in animation (optional) */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Scale on hover (slight zoom) */
+.hover-zoom:hover {
+  transform: scale(1.05);
+  transition: transform var(--transition-speed) ease;
+}
+
+/*
+  End of Enhanced Global CSS
+*/
