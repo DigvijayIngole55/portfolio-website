@@ -10,6 +10,7 @@ import ContactSection from "../components/contact";
 
 export default function Home() {
   return (
+    
     <div
       className="
         min-h-screen
