@@ -1,5 +1,5 @@
-/* 1. Google Fonts (Poppins) + Slick Carousel */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* 1. Google Fonts (SF Pro inspired) + Slick Carousel */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
@@ -10,140 +10,278 @@
 
 /* 
   --------------------------------------------------
-  :root Variables for Light and Dark Mode
+  Liquid Glass Design System Variables
   --------------------------------------------------
-  You can continue to manage high-level color tokens
-  via CSS variables, while also leveraging 
-  Tailwind classes as needed.
+  Inspired by Apple's WWDC 25 aesthetic
 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --transition-speed: 0.4s;
-  --gold: #FFD700;
-  --goldHover: #E6C200;
-  --accentBlue: #4FD1C5;
-
-  /* Feel free to add more brand variables 
-     if you want them globally accessible */
-  --text-secondary: #A0AEC0;
-  --border-gray: #2D3748;
-}
-
-/* 
-  Media query for system-level dark mode preferences.
-  Overwrites the default CSS variables with your dark colors.
-*/
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Glass Material Colors - Darker Apple Style */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 215, 0, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
+  
+  /* Background Colors - Deeper Black */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #050505;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
+  
+  /* Accent Colors - Gold/Black Theme */
+  --accent-gold: #FFD700;
+  --accent-gold-dark: #E6C200;
+  --accent-gold-light: #FFF700;
+  --accent-orange: #FF9500;
+  --accent-amber: #FFC107;
+  
+  /* Liquid Gradients - Subtle Gold Accents */
+  --gradient-primary: linear-gradient(135deg, 
+    rgba(255, 215, 0, 0.1) 0%, 
+    rgba(255, 193, 7, 0.08) 50%, 
+    rgba(255, 149, 0, 0.06) 100%);
+  --gradient-glass: linear-gradient(135deg, 
+    rgba(255, 215, 0, 0.05) 0%, 
+    rgba(255, 215, 0, 0.02) 100%);
+  
+  /* Animation Timing */
+  --transition-fast: 0.2s;
+  --transition-normal: 0.4s;
+  --transition-slow: 0.6s;
+  --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* 
   --------------------------------------------------
-  Base HTML & Body
+  Base HTML & Body with Liquid Background
   --------------------------------------------------
 */
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', Arial, Helvetica, sans-serif;
-  background-color: var(--background);
-  color: var(--foreground);
-  /* Optional: smoother transitions when switching themes */
-  transition: background-color var(--transition-speed) ease, 
-              color var(--transition-speed) ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+body {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255, 149, 0, 0.015) 0%, transparent 50%),
+    var(--bg-primary);
+  background-attachment: fixed;
 }
 
 /* 
   --------------------------------------------------
-  Custom Scrollbar (optional, techy feel)
+  Liquid Glass Morphism Components
   --------------------------------------------------
-  Works primarily in Chrome, Edge, Safari
+  Core glass materials and effects
 */
+
+/* Primary Glass Card - Apple Style */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-normal) var(--spring);
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 48px var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 215, 0, 0.15),
+    0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 215, 0, 0.2);
+}
+
+/* Glass Button - Subtle Apple Style */
+.glass-button {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  transition: all var(--transition-fast) var(--spring);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 215, 0, 0.05);
+}
+
+.glass-button:hover {
+  background: var(--glass-bg-hover);
+  transform: scale(1.02);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.15);
+}
+
+/* Liquid Gradient Text - Gold Theme */
+.gradient-text {
+  background: linear-gradient(135deg, 
+    var(--accent-gold) 0%, 
+    var(--accent-amber) 50%, 
+    var(--accent-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(30deg); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+  transition: all var(--transition-normal) var(--spring);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Liquid Orb Background Effects */
+.liquid-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  filter: blur(40px);
+  opacity: 0.3;
+  animation: liquidFloat 8s ease-in-out infinite;
+}
+
+@keyframes liquidFloat {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: translate(-20px, 20px) scale(0.9);
+    opacity: 0.2;
+  }
+  75% { 
+    transform: translate(10px, 10px) scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #1A202C; /* or var(--border-gray); */
+  background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #333333;
-  border-radius: 8px;
-  border: 1px solid #1A202C;
-  /* Subtle glow on hover */
+  background: var(--glass-bg);
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #4FD1C5; /* accentBlue glow, for instance */
+  background: var(--glass-bg-hover);
 }
 
-/* 
-  --------------------------------------------------
-  Existing Gradient Classes
-  --------------------------------------------------
-  You can keep or rename these classes as needed.
-*/
-.transition-bottom {
-  background: linear-gradient(to bottom, transparent, rgba(17, 24, 39, 1));
-}
-.transition-top {
-  background: linear-gradient(to top, transparent, rgba(17, 24, 39, 1));
-}
-.wave-divider {
-  background: url('/wave-divider.svg') no-repeat center;
-  background-size: cover;
-  height: 100px;
+/* Smooth Reveal Animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* 
-  --------------------------------------------------
-  Subtle Glow & Hover Effects
-  --------------------------------------------------
-  Utility classes you can apply to buttons, images, 
-  card components, etc., to achieve a futuristic vibe.
-*/
-
-/* Generic glow on hover */
-.hover-glow:hover {
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-  transition: box-shadow var(--transition-speed) ease;
+.reveal-up {
+  animation: revealUp 0.8s var(--spring) forwards;
 }
 
-/* Gold Glow (useful for key CTA buttons or icons) */
-.hover-gold:hover {
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  transition: box-shadow var(--transition-speed) ease;
+/* Staggered Animation Delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* Glow Effects - Gold Theme */
+.glow-gold {
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
 }
 
-/* Accent Blue Glow */
-.hover-accent-blue:hover {
-  box-shadow: 0 0 10px rgba(79, 209, 197, 0.5);
-  transition: box-shadow var(--transition-speed) ease;
+.glow-amber {
+  box-shadow: 0 0 40px rgba(255, 193, 7, 0.3);
 }
 
-/* 
-  --------------------------------------------------
-  Additional Helpers
-  --------------------------------------------------
-  - Fade in elements, transitions for scale on hover, etc.
-*/
-/* Fade-in animation (optional) */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
+.glow-orange {
+  box-shadow: 0 0 40px rgba(255, 149, 0, 0.3);
 }
 
-/* Scale on hover (slight zoom) */
-.hover-zoom:hover {
-  transform: scale(1.05);
-  transition: transform var(--transition-speed) ease;
+/* Legacy glow classes for compatibility */
+.glow-blue { box-shadow: 0 0 40px rgba(255, 215, 0, 0.3); }
+.glow-purple { box-shadow: 0 0 40px rgba(255, 193, 7, 0.3); }
+.glow-pink { box-shadow: 0 0 40px rgba(255, 149, 0, 0.3); }
+
+/* Progress Bar Animations */
+@keyframes fillProgress {
+  from { width: 0%; }
+  to { width: var(--fill-width); }
+}
+
+/* Text Shimmer Effect */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /*
-  End of Enhanced Global CSS
+  End of Liquid Glass Design System
 */

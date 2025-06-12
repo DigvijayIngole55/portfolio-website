@@ -1,0 +1,321 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glowing effects -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" fill="#000000"/>
+  
+  <!-- Floating geometric shapes with glass effect -->
+  <g opacity="0.8">
+    <!-- Large central hexagon (main device) -->
+    <polygon points="200,80 240,100 240,140 200,160 160,140 160,100" 
+             fill="url(#glassGradient)" 
+             stroke="url(#goldGradient)" 
+             stroke-width="2" 
+             filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="rotate" 
+                        values="0 200 120;360 200 120" 
+                        dur="20s" 
+                        repeatCount="indefinite"/>
+    </polygon>
+    
+    <!-- Screen inside hexagon -->
+    <rect x="175" y="105" width="50" height="30" 
+          fill="url(#darkGradient)" 
+          stroke="#FFD700" 
+          stroke-width="1" 
+          rx="3"/>
+    
+    <!-- Code lines on screen -->
+    <line x1="180" y1="112" x2="215" y2="112" stroke="#FFD700" stroke-width="1" opacity="0.7"/>
+    <line x1="180" y1="118" x2="210" y2="118" stroke="#FFA500" stroke-width="1" opacity="0.6"/>
+    <line x1="180" y1="124" x2="220" y2="124" stroke="#FFD700" stroke-width="1" opacity="0.5"/>
+  </g>
+
+  <!-- Mobile phone representation -->
+  <g transform="translate(120, 200)">
+    <rect x="0" y="0" width="40" height="70" 
+          fill="url(#glassGradient)" 
+          stroke="url(#goldGradient)" 
+          stroke-width="1.5" 
+          rx="8" 
+          filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; 0,-5; 0,0" 
+                        dur="3s" 
+                        repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Screen -->
+    <rect x="4" y="8" width="32" height="50" 
+          fill="#0a0a0a" 
+          stroke="#FFD700" 
+          stroke-width="0.5" 
+          rx="2"/>
+    
+    <!-- App icons -->
+    <circle cx="12" cy="18" r="3" fill="#FFD700" opacity="0.8"/>
+    <circle cx="20" cy="18" r="3" fill="#FFA500" opacity="0.8"/>
+    <circle cx="28" cy="18" r="3" fill="#FFD700" opacity="0.8"/>
+    
+    <rect x="8" y="28" width="6" height="6" fill="#FFD700" rx="1" opacity="0.7"/>
+    <rect x="16" y="28" width="6" height="6" fill="#FFA500" rx="1" opacity="0.7"/>
+    <rect x="24" y="28" width="6" height="6" fill="#FFD700" rx="1" opacity="0.7"/>
+  </g>
+
+  <!-- Laptop representation -->
+  <g transform="translate(250, 220)">
+    <!-- Laptop base -->
+    <rect x="0" y="20" width="80" height="45" 
+          fill="url(#glassGradient)" 
+          stroke="url(#goldGradient)" 
+          stroke-width="1.5" 
+          rx="4"/>
+    
+    <!-- Laptop screen -->
+    <rect x="10" y="0" width="60" height="40" 
+          fill="url(#glassGradient)" 
+          stroke="url(#goldGradient)" 
+          stroke-width="1.5" 
+          rx="3"
+          filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; 2,0; 0,0" 
+                        dur="4s" 
+                        repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Screen content -->
+    <rect x="15" y="5" width="50" height="30" 
+          fill="#0a0a0a" 
+          rx="2"/>
+    
+    <!-- Code editor interface -->
+    <line x1="20" y1="12" x2="55" y2="12" stroke="#FFD700" stroke-width="1" opacity="0.8"/>
+    <line x1="20" y1="16" x2="50" y2="16" stroke="#FFA500" stroke-width="1" opacity="0.7"/>
+    <line x1="20" y1="20" x2="58" y2="20" stroke="#FFD700" stroke-width="1" opacity="0.6"/>
+    <line x1="20" y1="24" x2="45" y2="24" stroke="#FFA500" stroke-width="1" opacity="0.5"/>
+    <line x1="20" y1="28" x2="52" y2="28" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+    
+    <!-- Keyboard -->
+    <rect x="15" y="35" width="50" height="8" 
+          fill="url(#darkGradient)" 
+          rx="1"/>
+  </g>
+
+  <!-- Floating tech icons -->
+  <!-- React icon -->
+  <g transform="translate(80, 120)">
+    <circle cx="0" cy="0" r="15" 
+            fill="none" 
+            stroke="#FFD700" 
+            stroke-width="2" 
+            opacity="0.6"
+            filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="rotate" 
+                        values="0;360" 
+                        dur="8s" 
+                        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="3" fill="#FFD700"/>
+    
+    <!-- Electron paths -->
+    <ellipse cx="0" cy="0" rx="15" ry="6" 
+             fill="none" 
+             stroke="#FFA500" 
+             stroke-width="1.5" 
+             opacity="0.5">
+      <animateTransform attributeName="transform" 
+                        type="rotate" 
+                        values="0;360" 
+                        dur="6s" 
+                        repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="0" cy="0" rx="15" ry="6" 
+             fill="none" 
+             stroke="#FFA500" 
+             stroke-width="1.5" 
+             opacity="0.5"
+             transform="rotate(60)">
+      <animateTransform attributeName="transform" 
+                        type="rotate" 
+                        values="60;420" 
+                        dur="6s" 
+                        repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="0" cy="0" rx="15" ry="6" 
+             fill="none" 
+             stroke="#FFA500" 
+             stroke-width="1.5" 
+             opacity="0.5"
+             transform="rotate(120)">
+      <animateTransform attributeName="transform" 
+                        type="rotate" 
+                        values="120;480" 
+                        dur="6s" 
+                        repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <!-- Flutter icon -->
+  <g transform="translate(320, 120)">
+    <polygon points="0,20 15,5 15,15 5,25 15,35 15,45 0,30" 
+             fill="url(#goldGradient)" 
+             opacity="0.8"
+             filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="scale" 
+                        values="1;1.1;1" 
+                        dur="2s" 
+                        repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="5,25 15,15 20,20 10,30" 
+             fill="#FFA500" 
+             opacity="0.9"/>
+  </g>
+
+  <!-- Swift icon -->
+  <g transform="translate(60, 300)">
+    <path d="M0,15 Q5,0 15,5 Q20,10 15,20 Q10,25 0,20 Q-5,15 0,15 Z" 
+          fill="url(#goldGradient)" 
+          opacity="0.7"
+          filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; -3,-3; 0,0" 
+                        dur="3s" 
+                        repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Database/Backend representation -->
+  <g transform="translate(320, 300)">
+    <ellipse cx="0" cy="0" rx="20" ry="6" 
+             fill="url(#glassGradient)" 
+             stroke="#FFD700" 
+             stroke-width="1.5"/>
+    <ellipse cx="0" cy="8" rx="20" ry="6" 
+             fill="url(#glassGradient)" 
+             stroke="#FFD700" 
+             stroke-width="1.5"/>
+    <ellipse cx="0" cy="16" rx="20" ry="6" 
+             fill="url(#glassGradient)" 
+             stroke="#FFD700" 
+             stroke-width="1.5"
+             filter="url(#softGlow)">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; 0,2; 0,0" 
+                        dur="4s" 
+                        repeatCount="indefinite"/>
+    </ellipse>
+    
+    <!-- Connection lines -->
+    <line x1="-20" y1="3" x2="-20" y2="13" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="20" y1="3" x2="20" y2="13" stroke="#FFD700" stroke-width="1.5"/>
+  </g>
+
+  <!-- Connecting lines/data flow -->
+  <g opacity="0.4">
+    <path d="M200,160 Q150,200 120,240" 
+          fill="none" 
+          stroke="#FFD700" 
+          stroke-width="2" 
+          stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;-10" 
+               dur="1s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M240,160 Q280,200 250,240" 
+          fill="none" 
+          stroke="#FFA500" 
+          stroke-width="2" 
+          stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;-10" 
+               dur="1.2s" 
+               repeatCount="indefinite"/>
+    </path>
+    
+    <path d="M200,180 Q260,220 320,280" 
+          fill="none" 
+          stroke="#FFD700" 
+          stroke-width="2" 
+          stroke-dasharray="3,7">
+      <animate attributeName="stroke-dashoffset" 
+               values="0;-10" 
+               dur="1.5s" 
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Floating particles -->
+  <g opacity="0.6">
+    <circle cx="100" cy="80" r="2" fill="#FFD700">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; 10,-10; 0,0" 
+                        dur="3s" 
+                        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="60" r="1.5" fill="#FFA500">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; -8,8; 0,0" 
+                        dur="4s" 
+                        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="350" r="2.5" fill="#FFD700">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; 12,5; 0,0" 
+                        dur="2.5s" 
+                        repeatCount="indefinite"/>
+    </circle>
+    <circle cx="350" cy="180" r="2" fill="#FFA500">
+      <animateTransform attributeName="transform" 
+                        type="translate" 
+                        values="0,0; -5,12; 0,0" 
+                        dur="3.5s" 
+                        repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
