@@ -66,6 +66,7 @@ export default function AboutMe() {
                 <img
                   src="/digvijay.jpg"
                   alt="Digvijay Ingole"
+                  loading="lazy"
                   className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
                 />
                 

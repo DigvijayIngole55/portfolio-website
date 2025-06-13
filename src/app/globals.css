@@ -59,6 +59,10 @@
   Base HTML & Body with Liquid Background
   --------------------------------------------------
 */
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -68,13 +72,30 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Scroll performance optimizations */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background: 
     radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 193, 7, 0.02) 0%, transparent 50%),
     radial-gradient(circle at 40% 80%, rgba(255, 149, 0, 0.015) 0%, transparent 50%),
     var(--bg-primary);
-  background-attachment: fixed;
 }
 
 /* 
@@ -87,8 +108,8 @@ body {
 /* Primary Glass Card - Apple Style */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   box-shadow: 
@@ -111,8 +132,8 @@ body {
 /* Glass Button - Subtle Apple Style */
 .glass-button {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   color: var(--text-primary);
@@ -120,6 +141,7 @@ body {
   box-shadow: 
     0 4px 16px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 215, 0, 0.05);
+  will-change: transform;
 }
 
 .glass-button:hover {
@@ -156,11 +178,13 @@ body {
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Hover Lift Effect */
 .hover-lift {
   transition: all var(--transition-normal) var(--spring);
+  will-change: transform;
 }
 
 .hover-lift:hover {
@@ -175,6 +199,7 @@ body {
   filter: blur(40px);
   opacity: 0.3;
   animation: liquidFloat 8s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes liquidFloat {

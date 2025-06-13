@@ -43,17 +43,24 @@ export const ParticleProvider = ({ children }) => {
 
     const init = () => {
       particles = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 30; i++) {
         particles.push(new Particle());
       }
     };
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
+    let lastTime = 0;
+    const targetFPS = 30; // Reduced from 60fps to 30fps for better performance
+    const frameInterval = 1000 / targetFPS;
+
+    const animate = (currentTime) => {
+      if (currentTime - lastTime >= frameInterval) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+        lastTime = currentTime;
+      }
       animationFrameId = requestAnimationFrame(animate);
     };
 

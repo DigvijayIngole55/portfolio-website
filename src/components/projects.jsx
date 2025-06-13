@@ -40,6 +40,7 @@ const ProjectCard = ({ project, index }) => {
                 <img
                   src={image.src}
                   alt={`${project.title} Screenshot ${idx + 1}`}
+                  loading="lazy"
                   className={`
                     ${image.orientation === "portrait" ? "h-full w-auto" : "w-full h-auto"}
                     object-contain rounded-lg shadow-2xl

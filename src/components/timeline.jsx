@@ -77,9 +77,9 @@ export default function Timeline() {
     {
       type: "education",
       title: "Bachelor's in Computer Engineering",
-      subtitle: "University Name", // You can update this
-      duration: "2018 – 2022", // You can update this
-      location: "Location", // You can update this
+      subtitle: "Savitribai Phule Pune University",
+      duration: "2018 – 2022",
+      location: "Pune, India",
       logo: "🎓",
       color: "from-yellow-500 to-amber-500",
       achievements: [],
@@ -92,7 +92,7 @@ export default function Timeline() {
       title: "Simba Developers",
       subtitle: "Software Developer Intern",
       duration: "Jun 2021 – Aug 2021",
-      location: "Mumbai, India",
+      location: "Pune, India",
       logo: "🌟",
       color: "from-amber-500 to-orange-500",
       achievements: [
