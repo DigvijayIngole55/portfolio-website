@@ -4,10 +4,10 @@ import { profileData } from '@/constants/profileData';
 
 export default function ProfileInfo() {
   return (
-    <div className="absolute top-[-13vh] left-1/2 transform -translate-x-1/2 z-20">
-      <div className="flex items-center space-x-10">
+    <div className="absolute top-[-10vh] md:top-[-13vh] left-1/2 transform -translate-x-1/2 z-20 w-full max-w-4xl px-4">
+      <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-10">
         <img 
-          className="h-35 w-35 rounded-full object-cover object-center" 
+          className="h-28 w-28 md:h-35 md:w-35 rounded-full object-cover object-center flex-shrink-0" 
           src="/Digvijay.png" 
           alt="Profile picture of Digvijay Ingole"
           style={{
@@ -20,17 +20,17 @@ export default function ProfileInfo() {
           }}
         />
         
-        <div>
-          <div className="flex items-center">
-            <h1 className="text-3xl font-medium text-white" style={{ fontFamily: 'var(--font-sf-pro-display)' }}>
+        <div className="text-center md:text-left">
+          <div className="flex flex-col md:flex-row items-center">
+            <h1 className="text-2xl md:text-3xl font-medium text-white" style={{ fontFamily: 'var(--font-sf-pro-display)' }}>
               {profileData.name}
             </h1>
-            <span className="ml-4 text-sm font-medium text-gray-400 px-3 py-1.5 rounded-lg" style={{ fontFamily: 'var(--font-sf-pro-text)', backgroundColor: '#171717', border: '1px solid #262626' }}>
+            <span className="mt-2 md:mt-0 md:ml-4 text-sm font-medium text-gray-400 px-3 py-1.5 rounded-lg" style={{ fontFamily: 'var(--font-sf-pro-text)', backgroundColor: '#171717', border: '1px solid #262626' }}>
               {profileData.pronouns}
             </span>
           </div>
           
-          <div className="mt-4 flex items-center space-x-8 text-sm font-medium" style={{ fontFamily: 'var(--font-sf-pro-text)', color: '#9B9B9B' }}>
+          <div className="mt-4 flex flex-wrap justify-center md:justify-start items-center gap-4 md:gap-8 text-sm font-medium" style={{ fontFamily: 'var(--font-sf-pro-text)', color: '#9B9B9B' }}>
             <div className="flex items-center">
               <ComputerDesktopIcon className="w-5 h-5 mr-2" style={{ color: '#9B9B9B' }} />
               <span>{profileData.jobTitle}</span>

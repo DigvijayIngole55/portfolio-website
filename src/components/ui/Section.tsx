@@ -12,8 +12,8 @@ export default function Section({ title, children, className = '', fullWidth = f
     return (
       <div className={`mt-16 relative ${className}`}>
         <div className="absolute inset-0 left-[-100vw] right-[-100vw] py-16" style={{ backgroundColor: '#171717' }}></div>
-        <div className="relative flex space-x-10 py-16 max-w-6xl mx-auto px-8">
-          <div className="w-35 flex-shrink-0">
+        <div className="relative flex flex-col md:flex-row md:space-x-10 space-y-4 md:space-y-0 py-16 max-w-6xl mx-auto px-8">
+          <div className="w-full md:w-35 flex-shrink-0">
             <h2 className="text-base font-medium text-white" style={{ fontFamily: 'var(--font-sf-pro-display)' }}>
               {title}
             </h2>
@@ -27,8 +27,8 @@ export default function Section({ title, children, className = '', fullWidth = f
   }
 
   return (
-    <div className={`mt-16 flex space-x-10 ${className}`}>
-      <div className="w-35 flex-shrink-0">
+    <div className={`mt-16 flex flex-col md:flex-row md:space-x-10 space-y-4 md:space-y-0 ${className}`}>
+      <div className="w-full md:w-35 flex-shrink-0">
         <h2 className="text-base font-medium text-white" style={{ fontFamily: 'var(--font-sf-pro-display)' }}>
           {title}
         </h2>

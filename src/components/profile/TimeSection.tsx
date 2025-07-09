@@ -21,7 +21,7 @@ export default function TimeSection() {
   return (
     <Section title="My time" fullWidth>
       <div className="space-y-8">
-        <div className="text-6xl font-light" style={{ fontFamily: 'var(--font-sf-pro-display)', color: '#9B9B9B' }}>
+        <div className="text-4xl md:text-6xl font-light" style={{ fontFamily: 'var(--font-sf-pro-display)', color: '#9B9B9B' }}>
           {currentTime}
         </div>
         

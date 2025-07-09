@@ -24,7 +24,7 @@ export default function ProfileHeader() {
       <div className="flex-1 w-full bg-[#141414] relative">
         <ProfileInfo />
         
-        <div className="pt-20 max-w-6xl mx-auto px-8">
+        <div className="pt-32 md:pt-20 max-w-6xl mx-auto px-4 md:px-8">
           <AboutSection />
           <ProjectsSection />
           <ExperienceSection />

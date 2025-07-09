@@ -6,7 +6,7 @@ import { profileData } from '@/constants/profileData';
 export default function ProjectsSection() {
   return (
     <Section title="Projects">
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {profileData.projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
