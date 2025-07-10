@@ -30,6 +30,11 @@ export interface Award {
   year: string;
 }
 
+export interface Skill {
+  category: string;
+  items: string[];
+}
+
 export interface Contact {
   label: string;
   value: string;
@@ -48,6 +53,7 @@ export interface ProfileData {
   projects: Project[];
   experiences: Experience[];
   education: Education[];
+  skills: Skill[];
   awards: Award[];
   contacts: Contact[];
 }

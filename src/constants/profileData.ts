@@ -21,7 +21,8 @@ export const profileData: ProfileData = {
       detailedDescription: "A voice-activated AI gaming assistant that uses wake word detection, speech-to-text, and text-to-speech technologies. Features automatic screenshot capture for visual context analysis using Gemini Vision API. Includes intelligent conversation handling with context management and real-time audio processing. Utilizes Picovoice for wake word detection and Deepgram for high-quality voice synthesis. Designed specifically for gaming environments with optimized response times.",
       tags: ["Python", "Gemini Vision API", "Picovoice", "Deepgram", "Whisper STT", "Pipecat", "Audio Processing"],
       alt: "Specta Voice AI Gaming Assistant",
-      githubLink: "#"
+      githubLink: "https://github.com/DigvijayIngole55/Specta.git",
+      liveLink: "https://www.linkedin.com/posts/digvijay-sanjay-ingole_built-an-ai-gaming-buddy-that-sees-your-activity-7348851105927221248-8Ebr?utm_source=share&utm_medium=member_desktop&rcm=ACoAADJOcm8BHSxGWDqjXrRDlChyv03pl7BvAsY"
     },
     {
       image: "/recipe.png",
@@ -53,7 +54,7 @@ export const profileData: ProfileData = {
     {
       degree: "Master's in Computer Science",
       school: "California State University, East Bay",
-      years: "2022-2024",
+      years: "2023-2025",
       description: "Focused on advanced algorithms, web systems, cybersecurity, operating systems, computer networks, database systems, artificial intelligence, and machine learning technologies."
     },
     {
@@ -63,12 +64,28 @@ export const profileData: ProfileData = {
       description: "Comprehensive study of data structures, algorithms, web development, and database systems with strong foundation in computer engineering principles."
     }
   ],
+  skills: [
+    {
+      category: "Languages",
+      items: ["Python", "JavaScript", "C", "C++", "Java", "SQL", "Dart", "HTML", "CSS", "Swift"]
+    },
+    {
+      category: "AI & Data Libraries",
+      items: ["Gemini API", "LangGraph", "RAG", "Vector Databases", "Whisper", "Picovoice", "Deepgram", "Pillow", "NumPy", "Transformers", "PyTorch", "Scikit-learn"]
+    },
+    {
+      category: "Tools & Frameworks",
+      items: ["NodeJS", "Angular", "Flutter", "Git", "Shell Scripting", "React", "Next.js", "Tailwind CSS", "pipecat-ai"]
+    },
+    {
+      category: "Cloud & Database Technologies",
+      items: ["AWS", "Supabase", "GCP", "Firebase", "MySQL", "MongoDB"]
+    }
+  ],
   awards: [
-    { title: "Site of the Day", organization: "Awwwards", year: "2023" },
-    { title: "Site of the Month", organization: "Awwwards", year: "2023" },
-    { title: "Site of the Day", organization: "Awwwards", year: "2023" },
-    { title: "Honorable Mention", organization: "Awwwards", year: "2022" },
-    { title: "WOTD", organization: "CSS Design Awards", year: "2022" }
+    { title: "AI Agents Excellence", organization: "Hugging Face", year: "2025" },
+    { title: "Complete 2021 Flutter Development Bootcamp with Dart", organization: "Udemy", year: "2020" },
+    { title: "ISTE Hack-SPRINT v3.0 - Runner Up", organization: "ISTE", year: "2021" }
   ],
   contacts: [
     { label: "E-Mail:", value: "digvijayingole55@gmail.com", link: "mailto:digvijayingole55@gmail.com" },

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 interface ProjectCardProps {
   image: string;
@@ -15,6 +15,29 @@ interface ProjectCardProps {
   githubLink?: string;
 }
 
+function CollapsibleDescription({ description }: { description: string }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const truncatedDescription = description.length > 150 ? description.substring(0, 150) + '...' : description;
+  const shouldTruncate = description.length > 150;
+
+  return (
+    <div className="mb-3">
+      <p className="text-xs text-[#9B9B9B] leading-relaxed" style={{ fontFamily: 'var(--font-sf-pro-text)' }}>
+        {isExpanded ? description : truncatedDescription}
+      </p>
+      {shouldTruncate && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-xs text-[#4A90E2] hover:text-[#5BA0F2] transition-colors mt-1"
+          style={{ fontFamily: 'var(--font-sf-pro-text)' }}
+        >
+          {isExpanded ? 'Show less' : 'Show more'}
+        </button>
+      )}
+    </div>
+  );
+}
+
 export default function ProjectCard({ image, title, description, year, detailedDescription, bulletPoints, tags, alt, liveLink, githubLink }: ProjectCardProps) {
   return (
     <div className="bg-[#1C1C1C] rounded-lg border border-[#383838] transition-all duration-300 overflow-hidden group hover:border-[#525252]"> {/* Darker background, border on hover */}
@@ -22,7 +45,7 @@ export default function ProjectCard({ image, title, description, year, detailedD
         <img
           src={image}
           alt={alt}
-          className="w-full h-[180px] object-cover group-hover:scale-105 transition-transform duration-300" // Fixed height for image, subtle scale on hover
+          className="w-full h-[180px] object-cover" // Fixed height for image
         />
         {/* Optional: Add an overlay to the image for better text readability if text were to be directly on the image */}
         {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50"></div> */}
@@ -60,9 +83,7 @@ export default function ProjectCard({ image, title, description, year, detailedD
           )}
         </div>
         {detailedDescription && (
-          <p className="text-xs text-[#9B9B9B] mb-3 leading-relaxed" style={{ fontFamily: 'var(--font-sf-pro-text)' }}>
-            {detailedDescription}
-          </p>
+          <CollapsibleDescription description={detailedDescription} />
         )}
         {bulletPoints && bulletPoints.length > 0 && (
           <ul className="space-y-1 mb-3">

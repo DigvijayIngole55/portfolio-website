@@ -3,9 +3,11 @@
 import React from 'react';
 import ProfileInfo from './ProfileInfo';
 import AboutSection from './AboutSection';
+import TechnicalSkillsSection from './TechnicalSkillsSection';
 import ProjectsSection from './ProjectsSection';
 import ExperienceSection from './ExperienceSection';
 import EducationSection from './EducationSection';
+import CertificationsSection from './CertificationsSection';
 import ContactSection from './ContactSection';
 import TimeSection from './TimeSection';
 
@@ -26,9 +28,11 @@ export default function ProfileHeader() {
         
         <div className="pt-32 md:pt-20 max-w-6xl mx-auto px-4 md:px-8">
           <AboutSection />
+          <TechnicalSkillsSection />
           <ProjectsSection />
           <ExperienceSection />
           <EducationSection />
+          <CertificationsSection />
           <ContactSection />
         </div>
         <TimeSection />
